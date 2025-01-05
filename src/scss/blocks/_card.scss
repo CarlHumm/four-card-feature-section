@@ -1,0 +1,107 @@
+.card {
+$r: &;
+
+--flow-space: 0.8em;
+--card-bg: white;
+--icon-size: clamp(3.5625em, 0.9287rem + 5.0764vw, 4em);
+--card-height: 220px;
+--shadow: 0 15px 30px -11px rgba(131, 166, 210, 0.5);
+
+position: relative;
+display: flex;
+flex-direction: column;
+background: var(--card-bg);
+padding: var(--space-m, --space-2xl);
+min-height: var(--card-height, 250px);
+overflow:hidden;
+border-radius:8px;
+max-width: 350px;
+box-shadow: var(--shadow);
+transition: transform 0.45s ease-out, color 0.28s ease-in-out, box-shadow 1s ease-in-out;
+transform: translateY(0);
+
+&__title, &__summary {
+    transition: inherit;
+}
+
+&__summary {
+    font-size: 13px;
+    line-height: 1.76923076923;
+    letter-spacing: var(--letter-spacing-s);
+}
+
+&:hover, &:focus-within {
+--shadow: 0 15px 30px -5px rgba(131, 167, 210, 0.226);
+transform: translateY(-10px);
+cursor:pointer;
+    #{$r}__title, #{$r}__summary {
+        color: white;
+    }
+    &:before {
+        transform:scaleY(1);
+    }
+}
+
+&:before {
+    content:"";
+    position:absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    inline-size: 100%;
+    block-size:100%;
+    transform: scaleY(0.016);
+    transform-origin:top;
+    transition: 0.5s ease-in-out;
+    z-index:-1;
+    clip-path: 0;
+}
+
+    &[data-tool="supervisor"] {
+        &:before {
+            background: var(--cyan);
+        } 
+    }
+    &[data-tool="team"] {
+        &:before {
+            background: var(--red);
+        } 
+    }
+    &[data-tool="karma"] {
+        &:before {
+            background: var(--orange);
+        } 
+    }
+    &[data-tool="calculator"] {
+        &:before {
+            background: var(--blue);
+        } 
+    }
+
+    &__icon {
+        width: var(--icon-size, 2em);
+        margin-inline-start: auto;
+        margin-block-start: auto;
+    }
+
+    &__link {
+        &[data-link-style="stretched"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: auto;
+            content: "";
+            background-color: rgba(0, 0, 0, 0);
+        }
+    }
+
+ }
+
+ @media screen and (min-width:1020px) {
+    .card {
+        --card-height: 250px;
+    }
+ }
+

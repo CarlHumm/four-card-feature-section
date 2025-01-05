@@ -1,0 +1,47 @@
+// Base
+@use 'reset';
+@use 'fonts';
+@use 'variables';
+@use './utilities';
+@use './blocks';
+
+
+body {
+    line-height: 1.25;
+    overflow-x: hidden;
+    background: var(--light-gray);
+    font-size: 0.9375rem;
+    font-family: 'Poppins',   sans-serif;
+    color: var(--grayish-blue);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    color: var(--dark-blue);
+}
+
+
+h1 {
+    font-size:var(--fs-2xl);
+}
+
+h2 {
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    letter-spacing: 0.25px;
+}
+
+h3 {
+    font-size: var(--fs-l);
+}
+
+ a {
+    color: currentColor;
+ }
+
+ :focus, :focus-within, :focus-visible {
+    outline: 0;
+ }
+
