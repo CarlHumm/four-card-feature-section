@@ -1,14 +1,16 @@
 
 .featured-ai-tools {
     --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(18rem, 50vw, 21.875rem);
+    --grid-min-item-size: clamp(18.75rem, 50vw, 21.875rem);
     --grid-gutter: 1.5rem;
      justify-content: center;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 68.125rem) {
 
     .featured-ai-tools {
+    --grid-min-item-size: clamp(18.75rem, 33vw, 21.875rem);
+
      grid-template-columns: repeat(3, minmax(var(--grid-min-item-size), 350px)); 
      justify-content: center; 
      align-items:center;
